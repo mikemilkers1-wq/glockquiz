@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GLOCK GmbH RoNation | Find Your GLOCK</title>
+  <meta name="description" content="A fictional RoNation LARP quiz page for finding a fitting GLOCK roleplay sidearm." />
+  <link rel="icon" href="assets/img/brand-mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-strip" aria-label="Utility navigation">
+      <a href="#">GLOCK PROFESSIONAL</a>
+      <a href="#">JOBS & CAREER</a>
+      <a href="#">CONTACT & SUPPORT</a>
+      <a href="#">DEALER LOCATOR</a>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="GLOCK GmbH RoNation homepage">
+        <img src="assets/img/brand-mark.svg" alt="GLOCK GmbH RoNation mark" />
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <a class="active" href="#quiz">EXPLORE GLOCK</a>
+        <a href="#results-info">PISTOLS</a>
+        <a href="#technology">TECHNOLOGY</a>
+        <a href="#footer">FAN ITEMS</a>
+        <a href="#footer">WORLD OF GLOCK</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a class="search-link" href="#quiz" aria-label="Search">⌕</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-map" aria-hidden="true"></div>
+      <div class="target-grid" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">RONATION LARP · GLOCK GMBH</p>
+        <h1 id="page-title">FIND YOUR<br />GLOCK</h1>
+      </div>
+    </section>
+
+    <section class="breadcrumb-wrap" aria-label="Breadcrumb">
+      <div class="container breadcrumb">
+        <a href="index.html" aria-label="Home">⌂</a>
+        <span>›</span>
+        <a href="#">Contact and support</a>
+        <span>›</span>
+        <span>Find your GLOCK</span>
+      </div>
+    </section>
+
+    <section class="intro-panel">
+      <div class="container intro-grid">
+        <div>
+          <h2>Find your dealer-approved RP sidearm</h2>
+          <p>
+            Answer a few roleplay-focused questions and the GLOCK GmbH showroom will suggest
+            a pistol archetype for your RoNation character. This page is designed for fictional
+            in-game LARP use only.
+          </p>
+        </div>
+        <div class="status-card">
+          <span class="status-dot"></span>
+          <strong>Showroom test online</strong>
+          <small>No signup · no tracking · static GitHub page</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+      <div class="container">
+        <div class="quiz-shell">
+          <aside class="quiz-side" aria-label="Quiz information">
+            <p class="small-title">GLOCK SELECTOR</p>
+            <h2>Find your GLOCK</h2>
+            <p>
+              The selector balances your role, preferred style, and use-case inside the nation roleplay.
+            </p>
+            <div class="meter" aria-hidden="true">
+              <span id="meter-fill"></span>
+            </div>
+            <p class="progress-text"><span id="current-step">1</span> / <span id="total-steps">6</span></p>
+          </aside>
+
+          <div class="quiz-card" id="quiz-card">
+            <div class="quiz-card-top">
+              <span class="orange-line"></span>
+              <p id="question-kicker">QUESTION 01</p>
+            </div>
+            <h3 id="question-title">Loading question…</h3>
+            <div class="answers" id="answers"></div>
+            <div class="quiz-controls">
+              <button class="btn btn-ghost" type="button" id="back-btn">Back</button>
+              <button class="btn btn-primary" type="button" id="next-btn" disabled>Next</button>
+            </div>
+          </div>
+
+          <section class="result-card hidden" id="result-card" aria-live="polite">
+            <div class="result-header">
+              <span class="small-title">YOUR RESULT</span>
+              <h2 id="result-name">GLOCK 19</h2>
+              <p id="result-tagline">Balanced all-rounder</p>
+            </div>
+            <div class="result-body">
+              <div class="model-visual" aria-hidden="true">
+                <div class="pistol-shape">
+                  <span class="slide"></span>
+                  <span class="grip"></span>
+                  <span class="trigger"></span>
+                </div>
+              </div>
+              <div>
+                <p id="result-description"></p>
+                <ul class="result-list" id="result-points"></ul>
+                <div class="result-actions">
+                  <button class="btn btn-primary" type="button" id="restart-btn">Retake test</button>
+                  <button class="btn btn-ghost" type="button" id="copy-btn">Copy result</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="pistol-overview" id="results-info">
+      <div class="container">
+        <div class="section-heading">
+          <p class="small-title">SHOWROOM</p>
+          <h2>Possible results</h2>
+        </div>
+        <div class="model-grid" id="model-grid"></div>
+      </div>
+    </section>
+
+    <section class="technology" id="technology">
+      <div class="container tech-grid">
+        <div>
+          <p class="small-title">TECHNOLOGY</p>
+          <h2>Built for roleplay clarity</h2>
+          <p>
+            The quiz uses weighted answers rather than random selection. Each answer adds points to
+            several pistol archetypes, so the final result feels consistent while still allowing different paths.
+          </p>
+        </div>
+        <div class="tech-list">
+          <article>
+            <h3>Static hosting</h3>
+            <p>Works on GitHub Pages without a backend, database, or build process.</p>
+          </article>
+          <article>
+            <h3>Easy editing</h3>
+            <p>All questions, model names, and result descriptions live in one JavaScript file.</p>
+          </article>
+          <article>
+            <h3>RP disclaimer</h3>
+            <p>Language is framed for fictional RoNation LARP use, not real-world purchasing advice.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>CONTACT AND SUPPORT</h3>
+        <a href="#quiz">Find your GLOCK</a>
+        <a href="#results-info">GLOCK Distributors</a>
+        <a href="#">Download area</a>
+        <a href="#">General contact request</a>
+      </div>
+      <div>
+        <h3>LEGAL</h3>
+        <a href="#">Imprint</a>
+        <a href="#">Legal information</a>
+        <a href="#">Data privacy</a>
+        <a href="#">Do not sell my personal information</a>
+      </div>
+      <div>
+        <h3>NEWSLETTER</h3>
+        <a href="#">GLOCK Newsletter sign-up</a>
+      </div>
+      <div>
+        <h3>JOIN US</h3>
+        <a href="#">Apply now</a>
+      </div>
+    </div>
+    <div class="container legal-note">
+      <p>
+        Unofficial fictional RoNation LARP website. This page is not affiliated with, endorsed by, or representative
+        of the real GLOCK company. Results are for in-game character flavor only.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
