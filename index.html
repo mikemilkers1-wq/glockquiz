@@ -1,0 +1,2547 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GLOCK GmbH | Finde deine GLOCK</title>
+  <style>
+    :root {
+      --black:#000;
+      --near:#090909;
+      --panel:#151515;
+      --panel2:#232323;
+      --line:#3a3a3a;
+      --text:#f6f6f6;
+      --muted:#aab0b5;
+      --soft:#e9e9e9;
+      --orange:#f28c00;
+      --orange2:#ffad33;
+      --grey:#787878;
+      --paper:#f4f4f4;
+      --ink:#111;
+      --good:#d7d7d7;
+      --shadow:0 20px 60px rgba(0,0,0,.32);
+      --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--ink);
+      background:#fff;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,select{font:inherit}
+    .topbar{
+      height:26px;
+      background:#202020;
+      color:#fff;
+      font-size:11px;
+      text-transform:uppercase;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      gap:28px;
+      padding:0 clamp(14px,4vw,48px);
+      letter-spacing:.02em;
+    }
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      height:72px;
+      background:#020202;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid #262626;
+      box-shadow:0 10px 22px rgba(0,0,0,.35);
+    }
+    .nav-inner{
+      width:100%;
+      display:grid;
+      grid-template-columns:120px 1fr auto;
+      align-items:center;
+      gap:20px;
+      padding:0 clamp(14px,4vw,48px);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      color:#fff;
+    }
+    .brand-mark{
+      width:45px;height:45px;border:2px solid #fff;border-radius:6px;display:grid;place-items:center;
+      position:relative;font-weight:900;font-size:11px;letter-spacing:-.05em;
+    }
+    .brand-mark::after{
+      content:"PERFECTION";
+      position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);
+      font-size:6px;letter-spacing:.08em;color:#fff;font-weight:700;
+    }
+    .nav-links{
+      display:flex;gap:28px;align-items:center;justify-content:center;text-transform:uppercase;
+      color:var(--orange);font-size:15px;letter-spacing:.035em;
+    }
+    .nav-links a{padding:27px 0 23px;border-bottom:3px solid transparent}
+    .nav-links a.active,.nav-links a:hover{border-bottom-color:var(--orange)}
+    .search-dot{
+      width:26px;height:26px;border-radius:50%;border:2px solid #ddd;position:relative;
+    }
+    .search-dot::after{content:"";width:9px;height:2px;background:#ddd;position:absolute;right:-6px;bottom:1px;transform:rotate(45deg)}
+    .hero{
+      min-height:340px;
+      position:relative;
+      color:#fff;
+      background:
+        linear-gradient(90deg,rgba(88,88,88,.85) 0%,rgba(145,145,145,.78) 48%,rgba(75,75,75,.93) 100%),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.09) 0 3px,transparent 3px 58px),
+        repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 3px,transparent 3px 58px);
+      overflow:hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:radial-gradient(circle at 36% 48%,rgba(255,255,255,.20),transparent 35%);
+      pointer-events:none;
+    }
+    .world-svg{
+      position:absolute;right:6vw;top:42px;width:min(720px,54vw);height:auto;opacity:.45;filter:grayscale(1);
+    }
+    .hero-content{
+      position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:115px 22px 70px;
+    }
+    .hero h1{
+      margin:0;font-size:clamp(42px,6vw,70px);line-height:1.05;text-transform:uppercase;letter-spacing:.02em;font-weight:900;
+      text-shadow:0 2px 2px rgba(0,0,0,.2);
+    }
+    .breadcrumb{
+      background:#f4f4f4;
+      border-bottom:1px solid #e4e4e4;
+      color:#101010;
+    }
+    .breadcrumb-inner{
+      max-width:var(--max);margin:0 auto;padding:18px 22px;display:flex;align-items:center;gap:10px;font-size:15px;
+    }
+    .house{font-size:19px;color:#363d3f}
+    .chev{color:#4f5659;font-size:20px;line-height:1}
+    .section-title{
+      background:#eee;
+      text-align:center;
+      padding:44px 18px 50px;
+      border-bottom:1px solid #e0e0e0;
+    }
+    .section-title h2{font-size:clamp(38px,5vw,58px);margin:0;font-weight:900;letter-spacing:.015em}
+    .intro{
+      background:#fff;
+      border-bottom:54px solid #3b3b3b;
+    }
+    .intro-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:54px 22px 44px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:30px;
+      align-items:stretch;
+    }
+    .intro-card{
+      background:#111;
+      color:#fff;
+      padding:34px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+      min-height:250px;
+    }
+    .intro-card::before{
+      content:"";
+      position:absolute;top:0;left:0;right:0;height:4px;background:var(--orange);
+    }
+    .intro-card h3{font-size:34px;text-transform:uppercase;margin:0 0 15px;letter-spacing:.02em}
+    .intro-card p{color:#cfd3d6;font-size:17px;line-height:1.65;margin:0 0 22px}
+    .btn{
+      appearance:none;
+      border:0;
+      background:var(--orange);
+      color:#111;
+      padding:14px 22px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.045em;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      transition:.15s transform,.15s filter,.15s background;
+    }
+    .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+    .btn.dark{background:#111;color:#fff;border:1px solid #3a3a3a}
+    .btn.ghost{background:transparent;color:#fff;border:1px solid #666}
+    .btn.small{padding:10px 13px;min-height:38px;font-size:12px}
+    .spec-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .spec{
+      background:#f1f1f1;
+      padding:20px;
+      border-left:4px solid var(--orange);
+      min-height:112px;
+    }
+    .spec b{display:block;text-transform:uppercase;font-size:12px;letter-spacing:.09em;color:#545b5f;margin-bottom:7px}
+    .spec span{font-size:20px;font-weight:800}
+    .quiz-wrap{
+      background:#111;
+      color:#fff;
+      padding:0 0 58px;
+    }
+    .quiz-shell{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 22px;
+      transform:translateY(-32px);
+    }
+    .quiz-panel{
+      background:#171717;
+      border:1px solid #303030;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .quiz-top{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:center;
+      padding:22px 24px;
+      background:#050505;
+      border-bottom:1px solid #333;
+    }
+    .quiz-top h3{margin:0;text-transform:uppercase;font-size:24px;letter-spacing:.02em}
+    .progress-label{color:#bec3c7;font-size:13px;text-transform:uppercase;letter-spacing:.08em;text-align:right}
+    .bar{height:6px;background:#303030;grid-column:1/-1;overflow:hidden}
+    .bar span{display:block;height:100%;width:0;background:var(--orange);transition:width .25s ease}
+    .question{
+      padding:30px 24px 32px;
+    }
+    .kicker{
+      color:var(--orange);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+    .question h4{font-size:31px;line-height:1.16;margin:0 0 22px}
+    .choices{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:13px;
+    }
+    .choice{
+      background:#242424;
+      color:#fff;
+      text-align:left;
+      border:1px solid #3c3c3c;
+      padding:18px;
+      cursor:pointer;
+      min-height:118px;
+      transition:.14s border,.14s background,.14s transform;
+    }
+    .choice:hover{border-color:var(--orange);background:#2c2c2c;transform:translateY(-1px)}
+    .choice strong{display:block;font-size:18px;margin-bottom:9px}
+    .choice span{display:block;color:#c6cbce;line-height:1.45;font-size:14px}
+    .quiz-actions{
+      display:flex;justify-content:space-between;gap:12px;align-items:center;
+      padding:0 24px 24px;
+    }
+    .history{color:#aeb4b8;font-size:13px}
+    .result{
+      display:none;
+      padding:30px 24px 34px;
+      background:linear-gradient(130deg,#151515,#242424);
+    }
+    .result.active{display:block}
+    .result-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 340px;
+      gap:24px;
+      align-items:stretch;
+    }
+    .result-card{
+      background:#eee;color:#111;padding:28px;border-top:6px solid var(--orange);position:relative;overflow:hidden;
+    }
+    .result-card::after{
+      content:"GLOCK";
+      position:absolute;
+      right:-8px;bottom:-25px;
+      font-size:90px;font-weight:900;color:rgba(0,0,0,.05);letter-spacing:-.06em;
+    }
+    .result-card .kicker{color:#696969}
+    .result-card h3{font-size:54px;line-height:.9;margin:0 0 14px;letter-spacing:-.04em}
+    .result-card p{font-size:17px;line-height:1.55;margin:0 0 18px;max-width:720px}
+    .model-meta{
+      display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;
+    }
+    .pill{
+      display:inline-flex;align-items:center;
+      padding:7px 10px;background:#111;color:#fff;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.055em;
+    }
+    .alt-box{
+      background:#111;border:1px solid #3a3a3a;padding:20px;
+    }
+    .alt-box h4{margin:0 0 14px;font-size:19px;text-transform:uppercase;color:#fff}
+    .alt-list{display:grid;gap:9px}
+    .alt-item{
+      background:#242424;border-left:4px solid var(--orange);padding:12px 13px;color:#fff;
+    }
+    .alt-item b{display:flex;justify-content:space-between;gap:8px;font-size:15px}
+    .alt-item span{display:block;color:#bdc4c8;font-size:12px;margin-top:4px}
+    .catalogue{
+      background:#fff;color:#111;padding:58px 22px 78px;
+    }
+    .catalogue-inner{max-width:var(--max);margin:0 auto}
+    .catalogue-head{
+      display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;margin-bottom:22px;
+    }
+    .catalogue h2{font-size:44px;text-transform:uppercase;margin:0 0 8px}
+    .catalogue p{margin:0;color:#535b60;line-height:1.5}
+    .filters{
+      display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .filter-input,.filter-select{
+      border:1px solid #cfcfcf;background:#f5f5f5;padding:12px 12px;min-height:43px;
+    }
+    .filter-input{min-width:230px}
+    .model-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+    .model-card{
+      border:1px solid #dedede;background:#f5f5f5;min-height:208px;display:flex;flex-direction:column;
+      position:relative;overflow:hidden;
+    }
+    .model-card::before{
+      content:"";
+      height:7px;background:#111;display:block;
+    }
+    .model-card:hover::before{background:var(--orange)}
+    .model-body{padding:17px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .model-title{display:flex;justify-content:space-between;gap:10px;align-items:start}
+    .model-title h3{font-size:29px;line-height:.92;margin:0;letter-spacing:-.055em}
+    .tiny-mark{border:1px solid #111;border-radius:3px;font-size:8px;font-weight:900;padding:4px 5px;line-height:1}
+    .model-card p{font-size:13px;color:#43494d;line-height:1.45;margin:0;flex:1}
+    .model-card .model-meta{margin:0}
+    .model-card .pill{font-size:10px;padding:5px 7px;background:#222}
+    .stamp{
+      background:#efefef;border-top:1px solid #ddd;padding:11px 17px;
+      text-transform:uppercase;font-size:10px;font-weight:900;color:#6a7074;letter-spacing:.08em;
+    }
+    footer{
+      background:#333;color:#fff;
+      padding:38px 22px 50px;
+    }
+    .footer-inner{
+      max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 2fr 2fr 1.5fr;gap:40px;
+    }
+    footer h4{margin:0 0 13px;color:#aeb4b8;text-transform:uppercase;font-weight:500}
+    footer a, footer span{display:block;color:#fff;margin:9px 0;font-size:14px}
+    .no-results{display:none;padding:28px;border:1px dashed #bbb;background:#fafafa;color:#555}
+    @media (max-width:900px){
+      .topbar{display:none}
+      .nav-inner{grid-template-columns:70px 1fr auto}
+      .nav-links{gap:12px;font-size:12px;justify-content:flex-start;overflow:auto}
+      .nav-links a{white-space:nowrap}
+      .world-svg{width:760px;right:-240px;opacity:.32}
+      .intro-inner,.result-grid{grid-template-columns:1fr}
+      .choices{grid-template-columns:1fr}
+      .model-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .catalogue-head{grid-template-columns:1fr}
+      .filters{justify-content:flex-start}
+      .footer-inner{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:560px){
+      .nav{height:auto}
+      .nav-inner{grid-template-columns:56px 1fr;gap:8px;padding:13px}
+      .brand-mark{width:38px;height:38px}
+      .search-dot{display:none}
+      .nav-links{grid-column:1/-1;justify-content:flex-start}
+      .hero-content{padding-top:75px}
+      .section-title{padding:34px 16px}
+      .intro-inner{padding-top:34px}
+      .spec-grid,.model-grid{grid-template-columns:1fr}
+      .quiz-top{grid-template-columns:1fr}
+      .progress-label{text-align:left}
+      .question h4{font-size:24px}
+      .result-card h3{font-size:44px}
+      .footer-inner{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="#catalogue">GLOCK Shop</a>
+    <a href="#quiz">Produktberater</a>
+    <a href="#footer">Kontakt & Hilfe</a>
+    <a href="#catalogue">Händlersuche</a>
+  </div>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="GLOCK GmbH">
+        <span class="brand-mark">GLOCK</span>
+      </a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a class="active" href="#quiz">GLOCK entdecken</a>
+        <a href="#catalogue">Pistolen</a>
+        <a href="#quiz">Technologie</a>
+        <a href="#footer">Fanartikel</a>
+        <a href="#footer">Welt von GLOCK</a>
+      </nav>
+      <a href="#catalogue" class="search-dot" aria-label="Katalog durchsuchen"></a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="GLOCK Produktberater">
+      <svg class="world-svg" viewBox="0 0 900 430" aria-hidden="true">
+        <path fill="#ffffff" d="M109 108l56-32 76 14 38 35-18 31 36 19-8 41-52 22-70-8-38-35-44-9-31-34 27-26zm233-15l66-28 68 33 26 62-25 55-64 8-72-27-24-54zm238 17l93-45 98 20 65 57-32 78-96 39-104-15-48-60zm-68 155l90-16 70 38 5 56-66 34-94-18-35-45zm-369 77l58-30 67 18 31 45-47 38-73-2-48-30zm622-5l48-12 38 31-11 42-50 14-38-26z"/>
+        <path fill="#ffffff" d="M741 103l37-15 41 11 30 30-14 33-43 8-38-20zm-94-52l40-12 37 17 5 33-42 8-39-16z"/>
+      </svg>
+      <div class="hero-content">
+        <h1>Finde deine<br>GLOCK</h1>
+      </div>
+    </section>
+
+    <section class="breadcrumb">
+      <div class="breadcrumb-inner">
+        <span class="house">⌂</span><span class="chev">›</span><span>Produkte</span><span class="chev">›</span><strong>Finde deine GLOCK</strong>
+      </div>
+    </section>
+
+    <section class="section-title">
+      <h2>Finde deine GLOCK</h2>
+    </section>
+
+    <section class="intro">
+      <div class="intro-inner">
+        <div class="intro-card">
+          <h3>Persönlicher Produktberater</h3>
+          <p>Beantworte ein geführtes Katalogprofil für privaten Besitz, Größenwunsch, Kaliber, Handhabungsgefühl und Schießstandinteresse. Der Produktberater gibt dir ein empfohlenes GLOCK Modell und eine kurze Liste nahe liegender Alternativen aus.</p>
+          <a class="btn" href="#quiz">Berater starten</a>
+        </div>
+        <div class="spec-grid" aria-label="Beraterdaten">
+          <div class="spec"><b>Katalogeinträge</b><span id="entryCount">53</span></div>
+          <div class="spec"><b>Fragen</b><span id="questionCount">14</span></div>
+          <div class="spec"><b>Ergebnisformat</b><span>Modellkarte</span></div>
+          <div class="spec"><b>Beraterlinie</b><span>Privatkundenkatalog</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-wrap" id="quiz">
+      <div class="quiz-shell">
+        <div class="quiz-panel">
+          <div class="quiz-top">
+            <h3>Finde deine GLOCK</h3>
+            <div class="progress-label" id="progressLabel">Frage 1</div>
+            <div class="bar" aria-hidden="true"><span id="progressBar"></span></div>
+          </div>
+
+          <div class="question" id="questionPanel"></div>
+          <div class="quiz-actions">
+            <button class="btn ghost small" id="backBtn" type="button">Zurück</button>
+            <div class="history" id="historyText">Kundenprofil geöffnet.</div>
+          </div>
+
+          <div class="result" id="resultPanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogue" id="catalogue">
+      <div class="catalogue-inner">
+        <div class="catalogue-head">
+          <div>
+            <h2>Produktkatalog</h2>
+            <p>Der folgende Katalog enthält die erweiterte Modelllinie, die vom Produktberater verwendet wird. X-Pakete und Optik-vorbereitete Ausführungen werden als Konfigurationsoptionen behandelt, nicht als eigene Beraterkanäle.</p>
+          </div>
+          <div class="filters">
+            <input class="filter-input" id="searchInput" type="search" placeholder="Modell, Kaliber oder Kataloghinweis suchen" aria-label="Katalog durchsuchen">
+            <select class="filter-select" id="sizeFilter" aria-label="Nach Größe filtern">
+              <option value="">Alle Rahmengrößen</option>
+            </select>
+            <select class="filter-select" id="caliberFilter" aria-label="Nach Kaliber filtern">
+              <option value="">Alle Kaliber</option>
+            </select>
+          </div>
+        </div>
+        <div class="model-grid" id="modelGrid"></div>
+        <div class="no-results" id="noResults">Keine Katalogeinträge passen zum aktuellen Katalogfilter.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-inner">
+      <div>
+        <h4>Kontakt und Hilfe</h4>
+        <a href="#quiz">Finde deine GLOCK</a>
+        <a href="#catalogue">GLOCK Katalog</a>
+        <a href="#catalogue">Produktübersicht</a>
+        <a href="#footer">Kundenkontakt anfragen</a>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <a href="#footer">Impressum</a>
+        <a href="#footer">Rechtliche Informationen</a>
+        <a href="#footer">Datenschutz</a>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <a href="#footer">GLOCK Newsletter abonnieren</a>
+        <span>Produkthinweise</span>
+      </div>
+      <div>
+        <h4>Händlersuche</h4>
+        <a href="#catalogue">Finde dein Modell</a>
+        <span>GLOCK GmbH</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const MODELS = [
+      {
+            "id": "G17",
+            "name": "G17",
+            "caliber": "9 mm Luger",
+            "size": "Standard",
+            "tags": [
+                  "standard",
+                  "duty",
+                  "classic",
+                  "balanced",
+                  "9mm",
+                  "admin",
+                  "patrol"
+            ],
+            "desc": "Ein Full-Size-9-mm-Luger-Profil für Besitzer, die klassische Balance, Stabilität und vertraute GLOCK Proportionen wünschen."
+      },
+      {
+            "id": "G17C",
+            "name": "G17C",
+            "caliber": "9 mm Luger",
+            "size": "Standard / Kompensiert",
+            "tags": [
+                  "standard",
+                  "duty",
+                  "classic",
+                  "balanced",
+                  "9mm",
+                  "precision",
+                  "sport"
+            ],
+            "desc": "Ein Full-Size-9-mm-Luger-Profil für Besitzer, die klassische Balance, Stabilität und vertraute GLOCK Proportionen wünschen. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G17L",
+            "name": "G17L",
+            "caliber": "9 mm Luger",
+            "size": "Long Slide",
+            "tags": [
+                  "longslide",
+                  "competition",
+                  "precision",
+                  "classic",
+                  "9mm",
+                  "sport"
+            ],
+            "desc": "Ein 9-mm-Luger-Long-Slide-Profil für Schießstandtage, Wertungsschießen, Sportschützen und präzisionsorientierte Besitzer."
+      },
+      {
+            "id": "G17T",
+            "name": "G17T",
+            "caliber": "Trainingsmarkierung",
+            "size": "Standard / Training",
+            "tags": [
+                  "training",
+                  "academy",
+                  "standard",
+                  "classic",
+                  "controlled"
+            ],
+            "desc": "Ein trainingsorientiertes Profil für Übungsbahnen, Kennenlern-Einheiten und wirtschaftliche Schießstandzeit."
+      },
+      {
+            "id": "G18",
+            "name": "G18",
+            "caliber": "9 mm Luger",
+            "size": "Spezialmodell",
+            "tags": [
+                  "special",
+                  "rare",
+                  "standard",
+                  "9mm",
+                  "collector",
+                  "authority"
+            ],
+            "desc": "Ein seltener Spezialkatalog-Eintrag in 9 mm Luger für Sammler und außergewöhnliche persönliche Katalogprofile."
+      },
+      {
+            "id": "G18C",
+            "name": "G18C",
+            "caliber": "9 mm Luger",
+            "size": "Spezialmodell / Kompensiert",
+            "tags": [
+                  "special",
+                  "rare",
+                  "standard",
+                  "9mm",
+                  "collector",
+                  "authority",
+                  "precision"
+            ],
+            "desc": "Ein seltener Spezialkatalog-Eintrag in 9 mm Luger für Sammler und außergewöhnliche persönliche Katalogprofile."
+      },
+      {
+            "id": "G19",
+            "name": "G19",
+            "caliber": "9 mm Luger",
+            "size": "Kompakt",
+            "tags": [
+                  "compact",
+                  "duty",
+                  "balanced",
+                  "9mm",
+                  "patrol",
+                  "plainclothes"
+            ],
+            "desc": "Ein ausgewogenes kompaktes 9-mm-Luger-Profil für privaten Besitz, regelmäßige Schießstandpraxis und angenehmes Tragen."
+      },
+      {
+            "id": "G19C",
+            "name": "G19C",
+            "caliber": "9 mm Luger",
+            "size": "Kompakt / Kompensiert",
+            "tags": [
+                  "compact",
+                  "balanced",
+                  "9mm",
+                  "precision",
+                  "sport",
+                  "plainclothes"
+            ],
+            "desc": "Ein ausgewogenes kompaktes 9-mm-Luger-Profil für privaten Besitz, regelmäßige Schießstandpraxis und angenehmes Tragen. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G19T",
+            "name": "G19T",
+            "caliber": "Trainingsmarkierung",
+            "size": "Kompakt / Training",
+            "tags": [
+                  "training",
+                  "academy",
+                  "compact",
+                  "controlled",
+                  "plainclothes"
+            ],
+            "desc": "Ein trainingsorientiertes Profil für Übungsbahnen, Kennenlern-Einheiten und wirtschaftliche Schießstandzeit."
+      },
+      {
+            "id": "G20",
+            "name": "G20",
+            "caliber": "10 mm Auto",
+            "size": "Standard",
+            "tags": [
+                  "standard",
+                  "power",
+                  "10mm",
+                  "field",
+                  "large",
+                  "authority"
+            ],
+            "desc": "Ein starkes 10-mm-Auto-Profil für Besitzer, die eine leistungsstarke GLOCK für Schießstand und Outdoor-Einsatz wünschen."
+      },
+      {
+            "id": "G20 SF",
+            "name": "G20 SF",
+            "caliber": "10 mm Auto",
+            "size": "Standard / Short Frame",
+            "tags": [
+                  "standard",
+                  "power",
+                  "10mm",
+                  "field",
+                  "large",
+                  "shortframe"
+            ],
+            "desc": "Ein starkes 10-mm-Auto-Profil für Besitzer, die eine leistungsstarke GLOCK für Schießstand und Outdoor-Einsatz wünschen. Die Short-Frame-Ausführung ergänzt eine kürzere Griffreichweite."
+      },
+      {
+            "id": "G21",
+            "name": "G21",
+            "caliber": ".45 Auto",
+            "size": "Standard",
+            "tags": [
+                  "standard",
+                  "power",
+                  "45auto",
+                  "large",
+                  "classic",
+                  "authority"
+            ],
+            "desc": "Ein klassisches .45-Auto-Profil für Besitzer, die ein kräftiges Kaliber mit traditioneller Ausstrahlung bevorzugen."
+      },
+      {
+            "id": "G21C",
+            "name": "G21C",
+            "caliber": ".45 Auto",
+            "size": "Standard / Kompensiert",
+            "tags": [
+                  "standard",
+                  "power",
+                  "45auto",
+                  "large",
+                  "precision",
+                  "sport"
+            ],
+            "desc": "Ein klassisches .45-Auto-Profil für Besitzer, die ein kräftiges Kaliber mit traditioneller Ausstrahlung bevorzugen. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G21 SF",
+            "name": "G21 SF",
+            "caliber": ".45 Auto",
+            "size": "Standard / Short Frame",
+            "tags": [
+                  "standard",
+                  "power",
+                  "45auto",
+                  "large",
+                  "shortframe"
+            ],
+            "desc": "Ein klassisches .45-Auto-Profil für Besitzer, die ein kräftiges Kaliber mit traditioneller Ausstrahlung bevorzugen. Die Short-Frame-Ausführung ergänzt eine kürzere Griffreichweite."
+      },
+      {
+            "id": "G22",
+            "name": "G22",
+            "caliber": ".40 S&W",
+            "size": "Standard",
+            "tags": [
+                  "standard",
+                  "40sw",
+                  "duty",
+                  "legacy",
+                  "patrol",
+                  "authority"
+            ],
+            "desc": "Ein Full-Size-.40-S&W-Profil für Besitzer, die klassische Balance, Stabilität und vertraute GLOCK Proportionen wünschen."
+      },
+      {
+            "id": "G22C",
+            "name": "G22C",
+            "caliber": ".40 S&W",
+            "size": "Standard / Kompensiert",
+            "tags": [
+                  "standard",
+                  "40sw",
+                  "precision",
+                  "sport",
+                  "legacy"
+            ],
+            "desc": "Ein Full-Size-.40-S&W-Profil für Besitzer, die klassische Balance, Stabilität und vertraute GLOCK Proportionen wünschen. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G23",
+            "name": "G23",
+            "caliber": ".40 S&W",
+            "size": "Kompakt",
+            "tags": [
+                  "compact",
+                  "40sw",
+                  "duty",
+                  "legacy",
+                  "plainclothes",
+                  "patrol"
+            ],
+            "desc": "Ein ausgewogenes kompaktes .40-S&W-Profil für privaten Besitz, regelmäßige Schießstandpraxis und angenehmes Tragen."
+      },
+      {
+            "id": "G23C",
+            "name": "G23C",
+            "caliber": ".40 S&W",
+            "size": "Kompakt / Kompensiert",
+            "tags": [
+                  "compact",
+                  "40sw",
+                  "precision",
+                  "sport",
+                  "legacy"
+            ],
+            "desc": "Ein ausgewogenes kompaktes .40-S&W-Profil für privaten Besitz, regelmäßige Schießstandpraxis und angenehmes Tragen. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G24",
+            "name": "G24",
+            "caliber": ".40 S&W",
+            "size": "Long Slide",
+            "tags": [
+                  "longslide",
+                  "competition",
+                  "40sw",
+                  "precision",
+                  "sport",
+                  "legacy"
+            ],
+            "desc": "Ein .40-S&W-Long-Slide-Profil für Schießstandtage, Wertungsschießen, Sportschützen und präzisionsorientierte Besitzer."
+      },
+      {
+            "id": "G24C",
+            "name": "G24C",
+            "caliber": ".40 S&W",
+            "size": "Long Slide / Kompensiert",
+            "tags": [
+                  "longslide",
+                  "competition",
+                  "40sw",
+                  "precision",
+                  "sport"
+            ],
+            "desc": "Ein .40-S&W-Long-Slide-Profil für Schießstandtage, Wertungsschießen, Sportschützen und präzisionsorientierte Besitzer. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G25",
+            "name": "G25",
+            "caliber": ".380 Auto",
+            "size": "Kompakt",
+            "tags": [
+                  "compact",
+                  "380auto",
+                  "soft",
+                  "plainclothes",
+                  "civic",
+                  "balanced"
+            ],
+            "desc": "Ein sanfteres .380-Auto-Profil für Besitzer, die eine ruhige, kompakte und zugängliche GLOCK wünschen."
+      },
+      {
+            "id": "G26",
+            "name": "G26",
+            "caliber": "9 mm Luger",
+            "size": "Subkompakt",
+            "tags": [
+                  "subcompact",
+                  "9mm",
+                  "plainclothes",
+                  "small",
+                  "backup",
+                  "civic"
+            ],
+            "desc": "Ein kleines 9-mm-Luger-Profil für private Besitzer, die minimale Größe, diskretes Tragen und einfache Aufbewahrung priorisieren."
+      },
+      {
+            "id": "G26C",
+            "name": "G26C",
+            "caliber": "9 mm Luger",
+            "size": "Subkompakt / Kompensiert",
+            "tags": [
+                  "subcompact",
+                  "9mm",
+                  "small",
+                  "precision",
+                  "sport"
+            ],
+            "desc": "Ein kleines 9-mm-Luger-Profil für private Besitzer, die minimale Größe, diskretes Tragen und einfache Aufbewahrung priorisieren. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G27",
+            "name": "G27",
+            "caliber": ".40 S&W",
+            "size": "Subkompakt",
+            "tags": [
+                  "subcompact",
+                  "40sw",
+                  "legacy",
+                  "small",
+                  "backup",
+                  "plainclothes"
+            ],
+            "desc": "Ein kleines .40-S&W-Profil für private Besitzer, die minimale Größe, diskretes Tragen und einfache Aufbewahrung priorisieren."
+      },
+      {
+            "id": "G27C",
+            "name": "G27C",
+            "caliber": ".40 S&W",
+            "size": "Subkompakt / Kompensiert",
+            "tags": [
+                  "subcompact",
+                  "40sw",
+                  "small",
+                  "precision",
+                  "sport"
+            ],
+            "desc": "Ein kleines .40-S&W-Profil für private Besitzer, die minimale Größe, diskretes Tragen und einfache Aufbewahrung priorisieren. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G28",
+            "name": "G28",
+            "caliber": ".380 Auto",
+            "size": "Subkompakt",
+            "tags": [
+                  "subcompact",
+                  "380auto",
+                  "soft",
+                  "small",
+                  "civic",
+                  "plainclothes"
+            ],
+            "desc": "Ein sanfteres .380-Auto-Profil für Besitzer, die eine ruhige, kompakte und zugängliche GLOCK wünschen."
+      },
+      {
+            "id": "G29",
+            "name": "G29",
+            "caliber": "10 mm Auto",
+            "size": "Subkompakt",
+            "tags": [
+                  "subcompact",
+                  "10mm",
+                  "power",
+                  "field",
+                  "small",
+                  "authority"
+            ],
+            "desc": "Ein starkes 10-mm-Auto-Profil für Besitzer, die eine leistungsstarke GLOCK für Schießstand und Outdoor-Einsatz wünschen."
+      },
+      {
+            "id": "G29 SF",
+            "name": "G29 SF",
+            "caliber": "10 mm Auto",
+            "size": "Subkompakt / Short Frame",
+            "tags": [
+                  "subcompact",
+                  "10mm",
+                  "power",
+                  "field",
+                  "shortframe",
+                  "small"
+            ],
+            "desc": "Ein starkes 10-mm-Auto-Profil für Besitzer, die eine leistungsstarke GLOCK für Schießstand und Outdoor-Einsatz wünschen. Die Short-Frame-Ausführung ergänzt eine kürzere Griffreichweite."
+      },
+      {
+            "id": "G30",
+            "name": "G30",
+            "caliber": ".45 Auto",
+            "size": "Subkompakt",
+            "tags": [
+                  "subcompact",
+                  "45auto",
+                  "power",
+                  "small",
+                  "classic",
+                  "plainclothes"
+            ],
+            "desc": "Ein klassisches .45-Auto-Profil für Besitzer, die ein kräftiges Kaliber mit traditioneller Ausstrahlung bevorzugen."
+      },
+      {
+            "id": "G30 SF",
+            "name": "G30 SF",
+            "caliber": ".45 Auto",
+            "size": "Subkompakt / Short Frame",
+            "tags": [
+                  "subcompact",
+                  "45auto",
+                  "power",
+                  "shortframe",
+                  "small"
+            ],
+            "desc": "Ein klassisches .45-Auto-Profil für Besitzer, die ein kräftiges Kaliber mit traditioneller Ausstrahlung bevorzugen. Die Short-Frame-Ausführung ergänzt eine kürzere Griffreichweite."
+      },
+      {
+            "id": "G30S",
+            "name": "G30S",
+            "caliber": ".45 Auto",
+            "size": "Subkompakt / Slim Slide",
+            "tags": [
+                  "subcompact",
+                  "45auto",
+                  "power",
+                  "slim",
+                  "small",
+                  "plainclothes"
+            ],
+            "desc": "Ein schlankes .45-Auto-Profil für private Besitzer, die eine schmale, klare und gut tragbare GLOCK wünschen."
+      },
+      {
+            "id": "G31",
+            "name": "G31",
+            "caliber": ".357 SIG",
+            "size": "Standard",
+            "tags": [
+                  "standard",
+                  "357sig",
+                  "duty",
+                  "legacy",
+                  "authority",
+                  "patrol"
+            ],
+            "desc": "Ein Full-Size-.357-SIG-Profil für Besitzer, die klassische Balance, Stabilität und vertraute GLOCK Proportionen wünschen."
+      },
+      {
+            "id": "G31C",
+            "name": "G31C",
+            "caliber": ".357 SIG",
+            "size": "Standard / Kompensiert",
+            "tags": [
+                  "standard",
+                  "357sig",
+                  "precision",
+                  "sport",
+                  "legacy"
+            ],
+            "desc": "Ein Full-Size-.357-SIG-Profil für Besitzer, die klassische Balance, Stabilität und vertraute GLOCK Proportionen wünschen. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G32",
+            "name": "G32",
+            "caliber": ".357 SIG",
+            "size": "Kompakt",
+            "tags": [
+                  "compact",
+                  "357sig",
+                  "duty",
+                  "legacy",
+                  "plainclothes",
+                  "authority"
+            ],
+            "desc": "Ein ausgewogenes kompaktes .357-SIG-Profil für privaten Besitz, regelmäßige Schießstandpraxis und angenehmes Tragen."
+      },
+      {
+            "id": "G32C",
+            "name": "G32C",
+            "caliber": ".357 SIG",
+            "size": "Kompakt / Kompensiert",
+            "tags": [
+                  "compact",
+                  "357sig",
+                  "precision",
+                  "sport",
+                  "legacy"
+            ],
+            "desc": "Ein ausgewogenes kompaktes .357-SIG-Profil für privaten Besitz, regelmäßige Schießstandpraxis und angenehmes Tragen. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G33",
+            "name": "G33",
+            "caliber": ".357 SIG",
+            "size": "Subkompakt",
+            "tags": [
+                  "subcompact",
+                  "357sig",
+                  "small",
+                  "legacy",
+                  "backup",
+                  "plainclothes"
+            ],
+            "desc": "Ein kleines .357-SIG-Profil für private Besitzer, die minimale Größe, diskretes Tragen und einfache Aufbewahrung priorisieren."
+      },
+      {
+            "id": "G33C",
+            "name": "G33C",
+            "caliber": ".357 SIG",
+            "size": "Subkompakt / Kompensiert",
+            "tags": [
+                  "subcompact",
+                  "357sig",
+                  "small",
+                  "precision",
+                  "sport"
+            ],
+            "desc": "Ein kleines .357-SIG-Profil für private Besitzer, die minimale Größe, diskretes Tragen und einfache Aufbewahrung priorisieren. Die kompensierte Ausführung ergänzt ein ruhigeres Schießstandverhalten."
+      },
+      {
+            "id": "G34",
+            "name": "G34",
+            "caliber": "9 mm Luger",
+            "size": "Wettkampf",
+            "tags": [
+                  "competition",
+                  "longslide",
+                  "precision",
+                  "9mm",
+                  "sport",
+                  "formal"
+            ],
+            "desc": "Ein 9-mm-Luger-Long-Slide-Profil für Schießstandtage, Wertungsschießen, Sportschützen und präzisionsorientierte Besitzer."
+      },
+      {
+            "id": "G35",
+            "name": "G35",
+            "caliber": ".40 S&W",
+            "size": "Wettkampf",
+            "tags": [
+                  "competition",
+                  "longslide",
+                  "precision",
+                  "40sw",
+                  "sport",
+                  "legacy"
+            ],
+            "desc": "Ein .40-S&W-Long-Slide-Profil für Schießstandtage, Wertungsschießen, Sportschützen und präzisionsorientierte Besitzer."
+      },
+      {
+            "id": "G36",
+            "name": "G36",
+            "caliber": ".45 Auto",
+            "size": "Slimline",
+            "tags": [
+                  "slim",
+                  "45auto",
+                  "plainclothes",
+                  "classic",
+                  "small",
+                  "civic"
+            ],
+            "desc": "Ein schlankes .45-Auto-Profil für private Besitzer, die eine schmale, klare und gut tragbare GLOCK wünschen."
+      },
+      {
+            "id": "G37",
+            "name": "G37",
+            "caliber": ".45 GAP",
+            "size": "Standard",
+            "tags": [
+                  "standard",
+                  "45gap",
+                  "legacy",
+                  "authority",
+                  "rare",
+                  "duty"
+            ],
+            "desc": "Ein selteneres .45-GAP-Katalogprofil für Besitzer, die ungewöhnliche GLOCK Linien und Sammlerwert bevorzugen."
+      },
+      {
+            "id": "G38",
+            "name": "G38",
+            "caliber": ".45 GAP",
+            "size": "Kompakt",
+            "tags": [
+                  "compact",
+                  "45gap",
+                  "legacy",
+                  "rare",
+                  "plainclothes",
+                  "authority"
+            ],
+            "desc": "Ein selteneres .45-GAP-Katalogprofil für Besitzer, die ungewöhnliche GLOCK Linien und Sammlerwert bevorzugen."
+      },
+      {
+            "id": "G39",
+            "name": "G39",
+            "caliber": ".45 GAP",
+            "size": "Subkompakt",
+            "tags": [
+                  "subcompact",
+                  "45gap",
+                  "legacy",
+                  "rare",
+                  "small",
+                  "backup"
+            ],
+            "desc": "Ein selteneres .45-GAP-Katalogprofil für Besitzer, die ungewöhnliche GLOCK Linien und Sammlerwert bevorzugen."
+      },
+      {
+            "id": "G40",
+            "name": "G40",
+            "caliber": "10 mm Auto",
+            "size": "Long Slide",
+            "tags": [
+                  "longslide",
+                  "10mm",
+                  "power",
+                  "precision",
+                  "field",
+                  "sport"
+            ],
+            "desc": "Ein 10-mm-Auto-Long-Slide-Profil für Schießstandtage, Wertungsschießen, Sportschützen und präzisionsorientierte Besitzer."
+      },
+      {
+            "id": "G41",
+            "name": "G41",
+            "caliber": ".45 Auto",
+            "size": "Wettkampf",
+            "tags": [
+                  "competition",
+                  "45auto",
+                  "precision",
+                  "sport",
+                  "classic",
+                  "longslide"
+            ],
+            "desc": "Ein .45-Auto-Long-Slide-Profil für Schießstandtage, Wertungsschießen, Sportschützen und präzisionsorientierte Besitzer."
+      },
+      {
+            "id": "G42",
+            "name": "G42",
+            "caliber": ".380 Auto",
+            "size": "Slimline / Subkompakt",
+            "tags": [
+                  "slim",
+                  "subcompact",
+                  "380auto",
+                  "soft",
+                  "small",
+                  "civic"
+            ],
+            "desc": "Ein schlankes .380-Auto-Profil für private Besitzer, die eine schmale, klare und gut tragbare GLOCK wünschen."
+      },
+      {
+            "id": "G43",
+            "name": "G43",
+            "caliber": "9 mm Luger",
+            "size": "Slimline / Subkompakt",
+            "tags": [
+                  "slim",
+                  "subcompact",
+                  "9mm",
+                  "small",
+                  "plainclothes",
+                  "civic"
+            ],
+            "desc": "Ein schlankes 9-mm-Luger-Profil für private Besitzer, die eine schmale, klare und gut tragbare GLOCK wünschen."
+      },
+      {
+            "id": "G44",
+            "name": "G44",
+            "caliber": ".22 l.r.",
+            "size": "Kompakt / Training",
+            "tags": [
+                  "training",
+                  "academy",
+                  "22lr",
+                  "soft",
+                  "compact",
+                  "sport"
+            ],
+            "desc": "Ein trainingsorientiertes Profil für Übungsbahnen, Kennenlern-Einheiten und wirtschaftliche Schießstandzeit."
+      },
+      {
+            "id": "G45",
+            "name": "G45",
+            "caliber": "9 mm Luger",
+            "size": "Kompakt-Crossover",
+            "tags": [
+                  "compact",
+                  "standard",
+                  "9mm",
+                  "duty",
+                  "balanced",
+                  "patrol"
+            ],
+            "desc": "Ein ausgewogenes kompaktes 9-mm-Luger-Profil für privaten Besitz, regelmäßige Schießstandpraxis und angenehmes Tragen."
+      },
+      {
+            "id": "G46",
+            "name": "G46",
+            "caliber": "9 mm Luger",
+            "size": "Kompakt-Service",
+            "tags": [
+                  "compact",
+                  "9mm",
+                  "duty",
+                  "authority",
+                  "balanced",
+                  "rare"
+            ],
+            "desc": "Ein selteneres 9-mm-Luger-Katalogprofil für Besitzer, die ungewöhnliche GLOCK Linien und Sammlerwert bevorzugen."
+      },
+      {
+            "id": "G47",
+            "name": "G47",
+            "caliber": "9 mm Luger",
+            "size": "Standard",
+            "tags": [
+                  "standard",
+                  "9mm",
+                  "duty",
+                  "modern",
+                  "patrol",
+                  "balanced"
+            ],
+            "desc": "Ein Full-Size-9-mm-Luger-Profil für Besitzer, die klassische Balance, Stabilität und vertraute GLOCK Proportionen wünschen."
+      },
+      {
+            "id": "G48",
+            "name": "G48",
+            "caliber": "9 mm Luger",
+            "size": "Slimline / Kompakt",
+            "tags": [
+                  "slim",
+                  "compact",
+                  "9mm",
+                  "plainclothes",
+                  "civic",
+                  "balanced"
+            ],
+            "desc": "Ein schlankes 9-mm-Luger-Profil für private Besitzer, die eine schmale, klare und gut tragbare GLOCK wünschen."
+      },
+      {
+            "id": "G49",
+            "name": "G49",
+            "caliber": "9 mm Luger",
+            "size": "Kompakt / Long Slide",
+            "tags": [
+                  "compact",
+                  "longslide",
+                  "9mm",
+                  "precision",
+                  "modern",
+                  "duty"
+            ],
+            "desc": "Ein 9-mm-Luger-Long-Slide-Profil für Schießstandtage, Wertungsschießen, Sportschützen und präzisionsorientierte Besitzer."
+      }
+];
+    const QUESTIONS = [
+      {
+            "title": "Wofür soll sich deine GLOCK am besten eignen?",
+            "kicker": "Kundenprofil",
+            "options": [
+                  {
+                        "label": "Eine Pistole für alles",
+                        "text": "Eine praktische Allround-Wahl für Besitz, Schießstandzeit und vertraute Handhabung.",
+                        "tags": {
+                              "balanced": 5,
+                              "9mm": 3,
+                              "compact": 2,
+                              "standard": 2,
+                              "classic": 1
+                        }
+                  },
+                  {
+                        "label": "Diskretes tägliches Tragen",
+                        "text": "Ein schlankeres oder kleineres Modell, das sich leicht tragen und einfach aufbewahren lässt.",
+                        "tags": {
+                              "plainclothes": 4,
+                              "slim": 4,
+                              "small": 3,
+                              "subcompact": 2,
+                              "compact": 1
+                        }
+                  },
+                  {
+                        "label": "Schießstand und Sportschießen",
+                        "text": "Ein längeres oder ruhigeres Modell, das Übung und saubere Wertung belohnt.",
+                        "tags": {
+                              "competition": 5,
+                              "sport": 5,
+                              "precision": 4,
+                              "longslide": 4
+                        }
+                  },
+                  {
+                        "label": "Sammlung und Kataloginteresse",
+                        "text": "Ein Modell mit stärkerer Identität, historischer Note oder ungewöhnlicher Katalogposition.",
+                        "tags": {
+                              "collector": 5,
+                              "rare": 4,
+                              "classic": 3,
+                              "legacy": 2,
+                              "special": 1
+                        }
+                  },
+                  {
+                        "label": "Training und erstes Kennenlernen",
+                        "text": "Ein ruhiges Profil zum Kennenlernen der Bedienung, zum Aufbau von Sicherheit und für Zeit auf der Bahn.",
+                        "tags": {
+                              "training": 5,
+                              "academy": 5,
+                              "soft": 4,
+                              "22lr": 4
+                        },
+                        "models": {
+                              "G44": 4,
+                              "G17T": 2,
+                              "G19T": 2
+                        }
+                  },
+                  {
+                        "label": "Starkes Outdoor- und Schießstandprofil",
+                        "text": "Ein größeres oder stärkeres Kaliber mit deutlicherer Präsenz.",
+                        "tags": {
+                              "power": 5,
+                              "10mm": 3,
+                              "45auto": 2,
+                              "field": 3,
+                              "large": 2
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Welche Rahmengröße passt zu dir?",
+            "kicker": "Rahmenwunsch",
+            "options": [
+                  {
+                        "label": "Full-Size",
+                        "text": "Stabil, klassisch und vertrauenerweckend in der Hand.",
+                        "tags": {
+                              "standard": 5,
+                              "classic": 2,
+                              "duty": 1
+                        }
+                  },
+                  {
+                        "label": "Kompakt",
+                        "text": "Der Mittelweg: groß genug für angenehmes Schießen, klein genug für den Alltag.",
+                        "tags": {
+                              "compact": 5,
+                              "balanced": 4,
+                              "9mm": 1
+                        }
+                  },
+                  {
+                        "label": "Subkompakt",
+                        "text": "Minimale Größe und maximale Diskretion.",
+                        "tags": {
+                              "subcompact": 5,
+                              "small": 5,
+                              "backup": 2
+                        }
+                  },
+                  {
+                        "label": "Slimline",
+                        "text": "Schmalere Proportionen und ein klares Privat-Trageprofil.",
+                        "tags": {
+                              "slim": 5,
+                              "plainclothes": 4,
+                              "civic": 2
+                        }
+                  },
+                  {
+                        "label": "Long Slide / Competition",
+                        "text": "Eine längere Visierlinie und ein bewussteres Schießstandprofil.",
+                        "tags": {
+                              "longslide": 5,
+                              "competition": 4,
+                              "precision": 4,
+                              "sport": 2
+                        }
+                  },
+                  {
+                        "label": "Keine feste Größenpräferenz",
+                        "text": "Der Berater soll die stärkste Gesamtübereinstimmung wählen.",
+                        "tags": {
+                              "balanced": 4,
+                              "modern": 2,
+                              "classic": 2,
+                              "9mm": 2
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Welche Kaliberfamilie spricht dich an?",
+            "kicker": "Kaliberwunsch",
+            "options": [
+                  {
+                        "label": "9 mm Luger",
+                        "text": "Verbreitet, ausgewogen und als private Allround-Wahl leicht nachvollziehbar.",
+                        "tags": {
+                              "9mm": 7,
+                              "balanced": 2,
+                              "compact": 1
+                        }
+                  },
+                  {
+                        "label": ".380 Auto",
+                        "text": "Sanfter, kleiner und ruhig in kompakten Profilen.",
+                        "tags": {
+                              "380auto": 7,
+                              "soft": 4,
+                              "small": 2,
+                              "civic": 2
+                        }
+                  },
+                  {
+                        "label": ".22 l.r.",
+                        "text": "Training, Kennenlernen und günstige Wiederholung auf dem Schießstand.",
+                        "tags": {
+                              "22lr": 8,
+                              "training": 5,
+                              "soft": 4
+                        },
+                        "models": {
+                              "G44": 5
+                        }
+                  },
+                  {
+                        "label": ".40 S&W",
+                        "text": "Ein Traditionskaliber mit stärkerem Old-School-Kataloggefühl.",
+                        "tags": {
+                              "40sw": 7,
+                              "legacy": 3,
+                              "classic": 1
+                        }
+                  },
+                  {
+                        "label": ".45 Auto",
+                        "text": "Klassischer Großkaliber-Charakter und ein kräftiges Gefühl.",
+                        "tags": {
+                              "45auto": 7,
+                              "classic": 4,
+                              "power": 2
+                        }
+                  },
+                  {
+                        "label": "10 mm Auto",
+                        "text": "Ein starkes Outdoor- und Schießstandkaliber für Besitzer, die Leistung wünschen.",
+                        "tags": {
+                              "10mm": 7,
+                              "power": 5,
+                              "field": 3
+                        }
+                  },
+                  {
+                        "label": ".357 SIG",
+                        "text": "Eine schärfere Spezialistenlinie mit ungewöhnlicher Ausstrahlung.",
+                        "tags": {
+                              "357sig": 7,
+                              "legacy": 4,
+                              "rare": 1
+                        }
+                  },
+                  {
+                        "label": ".45 GAP",
+                        "text": "Eine seltene Kataloglinie für Sammler und ungewöhnliche Präferenzprofile.",
+                        "tags": {
+                              "45gap": 8,
+                              "rare": 5,
+                              "legacy": 3
+                        }
+                  },
+                  {
+                        "label": "Keine starke Kaliberpräferenz",
+                        "text": "Das gesamte Kundenprofil soll wichtiger sein als die Kaliberidentität.",
+                        "tags": {
+                              "balanced": 5,
+                              "9mm": 3,
+                              "compact": 2,
+                              "standard": 1
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Wie stellst du dir Tragen oder Aufbewahrung am häufigsten vor?",
+            "kicker": "Alltagseignung",
+            "options": [
+                  {
+                        "label": "Schießstandtasche und Heimtresor",
+                        "text": "Eine normale Besitzroutine mit Platz für ein ausgewogenes Modell.",
+                        "tags": {
+                              "balanced": 4,
+                              "compact": 3,
+                              "standard": 2,
+                              "9mm": 2
+                        }
+                  },
+                  {
+                        "label": "Jacke oder diskretes Holster",
+                        "text": "Eine klare, kleinere Kontur ist wichtiger als Full-Size-Präsenz.",
+                        "tags": {
+                              "plainclothes": 5,
+                              "slim": 4,
+                              "compact": 2,
+                              "subcompact": 2
+                        }
+                  },
+                  {
+                        "label": "Kleine Sicherheitsbox oder Transportkoffer",
+                        "text": "Kompakte Abmessungen haben oberste Priorität.",
+                        "tags": {
+                              "small": 5,
+                              "subcompact": 4,
+                              "slim": 3
+                        }
+                  },
+                  {
+                        "label": "Vitrine und Sammlungsnotizen",
+                        "text": "Ein markanter Modellname zählt genauso wie praktische Eignung.",
+                        "tags": {
+                              "collector": 6,
+                              "rare": 4,
+                              "classic": 3,
+                              "legacy": 2
+                        }
+                  },
+                  {
+                        "label": "Wettkampfkoffer",
+                        "text": "Die Pistole soll sich wie gemacht für Bahnzeit und Wertung anfühlen.",
+                        "tags": {
+                              "competition": 6,
+                              "sport": 5,
+                              "precision": 4,
+                              "longslide": 3
+                        }
+                  },
+                  {
+                        "label": "Trainingsausrüstung",
+                        "text": "Ein ruhiges, wiederholbares Modell für Einweisung und Kennenlernen.",
+                        "tags": {
+                              "training": 6,
+                              "academy": 5,
+                              "soft": 3
+                        },
+                        "models": {
+                              "G44": 4,
+                              "G17T": 2,
+                              "G19T": 2
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Welchen Handhabungscharakter bevorzugst du?",
+            "kicker": "Handhabung",
+            "options": [
+                  {
+                        "label": "Ausgewogen und universell",
+                        "text": "Nichts Extremes; die Pistole soll einfach Sinn ergeben.",
+                        "tags": {
+                              "balanced": 6,
+                              "9mm": 3,
+                              "compact": 2,
+                              "standard": 1
+                        }
+                  },
+                  {
+                        "label": "Sanft und zugänglich",
+                        "text": "Der Berater soll ruhigere Kaliber und leichtere Übung bevorzugen.",
+                        "tags": {
+                              "soft": 6,
+                              "380auto": 3,
+                              "22lr": 3,
+                              "training": 2
+                        }
+                  },
+                  {
+                        "label": "Stark und präsent",
+                        "text": "Ein größerer Rahmen oder ein stärkeres Kaliber ist willkommen.",
+                        "tags": {
+                              "power": 6,
+                              "10mm": 3,
+                              "45auto": 2,
+                              "large": 2,
+                              "standard": 1
+                        }
+                  },
+                  {
+                        "label": "Klassisch und traditionell",
+                        "text": "Das Ergebnis soll sich wie ein Katalogklassiker anfühlen, nicht wie eine Modewahl.",
+                        "tags": {
+                              "classic": 6,
+                              "standard": 3,
+                              "45auto": 2,
+                              "9mm": 2
+                        }
+                  },
+                  {
+                        "label": "Modern und praktisch",
+                        "text": "Klare Proportionen und moderne Kataloglogik zählen am meisten.",
+                        "tags": {
+                              "modern": 6,
+                              "compact": 3,
+                              "9mm": 3,
+                              "balanced": 2
+                        },
+                        "models": {
+                              "G45": 2,
+                              "G47": 2,
+                              "G48": 2,
+                              "G49": 2
+                        }
+                  },
+                  {
+                        "label": "Selten und charakterstark",
+                        "text": "Du besitzt lieber etwas Ungewöhnliches als die naheliegendste Antwort.",
+                        "tags": {
+                              "rare": 6,
+                              "collector": 5,
+                              "legacy": 3,
+                              "special": 2
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Welches Griff- und Rahmengefühl klingt am angenehmsten?",
+            "kicker": "Passform",
+            "options": [
+                  {
+                        "label": "Voller Griff und volle Kontrolle",
+                        "text": "Ein größerer Rahmen ist in Ordnung, wenn er sich stabil anfühlt.",
+                        "tags": {
+                              "standard": 5,
+                              "large": 3,
+                              "classic": 1
+                        }
+                  },
+                  {
+                        "label": "Kompakter Griffkompromiss",
+                        "text": "Genug Griff für gutes Schießen, ohne unnötige Größe.",
+                        "tags": {
+                              "compact": 5,
+                              "balanced": 4,
+                              "9mm": 2
+                        }
+                  },
+                  {
+                        "label": "Kürzestes praktisches Profil",
+                        "text": "Reduzierte Größe ist wichtiger als maximaler Komfort.",
+                        "tags": {
+                              "subcompact": 5,
+                              "small": 5,
+                              "backup": 2
+                        }
+                  },
+                  {
+                        "label": "Schmales Griffprofil",
+                        "text": "Die Breite ist der entscheidende Punkt.",
+                        "tags": {
+                              "slim": 6,
+                              "plainclothes": 3,
+                              "small": 2
+                        }
+                  },
+                  {
+                        "label": "Short-Frame-Reichweite",
+                        "text": "Du bevorzugst ein großes Kaliber, aber mit besser erreichbarem Griff.",
+                        "tags": {
+                              "shortframe": 7,
+                              "power": 2
+                        },
+                        "models": {
+                              "G20 SF": 3,
+                              "G21 SF": 3,
+                              "G29 SF": 3,
+                              "G30 SF": 3
+                        }
+                  },
+                  {
+                        "label": "Längere Schlittenbalance",
+                        "text": "Ein längerer Schlitten und ein ruhigeres Visierbild klingen attraktiv.",
+                        "tags": {
+                              "longslide": 5,
+                              "precision": 5,
+                              "sport": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Welche Art von Schießstandzeit beschreibt dich am besten?",
+            "kicker": "Schießstandprofil",
+            "options": [
+                  {
+                        "label": "Gelegentliche Übung",
+                        "text": "Ein zuverlässiger Allrounder reicht aus.",
+                        "tags": {
+                              "balanced": 5,
+                              "9mm": 3,
+                              "compact": 2
+                        }
+                  },
+                  {
+                        "label": "Regelmäßige Präzisionsübung",
+                        "text": "Die Pistole soll sorgfältiges Zielen und wiederholbare Handhabung belohnen.",
+                        "tags": {
+                              "precision": 6,
+                              "longslide": 3,
+                              "competition": 2,
+                              "sport": 2
+                        }
+                  },
+                  {
+                        "label": "Liga- oder Matchschießen",
+                        "text": "Ein wettkampforientiertes Profil wird bevorzugt.",
+                        "tags": {
+                              "competition": 7,
+                              "sport": 6,
+                              "precision": 4,
+                              "longslide": 4
+                        }
+                  },
+                  {
+                        "label": "Trainingsintensive Wiederholung",
+                        "text": "Stressarmes Kennenlernen und lange Einheiten zählen.",
+                        "tags": {
+                              "training": 6,
+                              "academy": 4,
+                              "soft": 4,
+                              "22lr": 3
+                        },
+                        "models": {
+                              "G44": 4
+                        }
+                  },
+                  {
+                        "label": "Übung mit starkem Kaliber",
+                        "text": "Du magst stärkere Kaliber und ein kräftigeres Gefühl.",
+                        "tags": {
+                              "power": 6,
+                              "10mm": 3,
+                              "45auto": 2,
+                              "field": 2
+                        }
+                  },
+                  {
+                        "label": "Schießstandzeit ist nicht der Hauptpunkt",
+                        "text": "Alltagsgröße und Besitzkomfort sollen gewinnen.",
+                        "tags": {
+                              "small": 3,
+                              "slim": 3,
+                              "compact": 3,
+                              "plainclothes": 2
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Welche Katalogidentität spricht dich an?",
+            "kicker": "Stil",
+            "options": [
+                  {
+                        "label": "Das ursprüngliche Icon",
+                        "text": "Das Ergebnis soll klar klassisch wirken.",
+                        "tags": {
+                              "classic": 6,
+                              "standard": 4,
+                              "9mm": 2
+                        },
+                        "models": {
+                              "G17": 5
+                        }
+                  },
+                  {
+                        "label": "Das kompakte Icon",
+                        "text": "Eine praktische GLOCK, die sofort verständlich ist.",
+                        "tags": {
+                              "compact": 5,
+                              "balanced": 4,
+                              "9mm": 3
+                        },
+                        "models": {
+                              "G19": 4
+                        }
+                  },
+                  {
+                        "label": "Die schlanke moderne Linie",
+                        "text": "Klar, schmal und privatkundenfreundlich.",
+                        "tags": {
+                              "slim": 6,
+                              "modern": 3,
+                              "plainclothes": 3
+                        },
+                        "models": {
+                              "G43": 2,
+                              "G48": 2
+                        }
+                  },
+                  {
+                        "label": "Die Sportlinie",
+                        "text": "Sie soll auf der Schießstandbank zuhause wirken.",
+                        "tags": {
+                              "competition": 6,
+                              "longslide": 5,
+                              "precision": 5,
+                              "sport": 4
+                        }
+                  },
+                  {
+                        "label": "Die starke Linie",
+                        "text": "Ein stärkeres Kaliber und mehr Persönlichkeit sprechen dich an.",
+                        "tags": {
+                              "power": 6,
+                              "10mm": 3,
+                              "45auto": 2,
+                              "large": 2
+                        }
+                  },
+                  {
+                        "label": "Die ungewöhnliche Linie",
+                        "text": "Du willst einen Kataloghinweis, den die meisten Besitzer nicht zuerst wählen.",
+                        "tags": {
+                              "rare": 6,
+                              "collector": 5,
+                              "legacy": 3,
+                              "45gap": 1,
+                              "357sig": 1
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Wie erfahren soll dich der Berater einschätzen?",
+            "kicker": "Besitzererfahrung",
+            "options": [
+                  {
+                        "label": "Neuer GLOCK Besitzer",
+                        "text": "Empfiehl etwas, das leicht verständlich und alltagstauglich ist.",
+                        "tags": {
+                              "balanced": 6,
+                              "9mm": 4,
+                              "compact": 2,
+                              "soft": 1
+                        },
+                        "models": {
+                              "G19": 2,
+                              "G17": 1
+                        }
+                  },
+                  {
+                        "label": "Erfahrener Pistolenbesitzer",
+                        "text": "Eine spezifischere Passung ist in Ordnung.",
+                        "tags": {
+                              "modern": 3,
+                              "precision": 2,
+                              "power": 2,
+                              "compact": 2
+                        }
+                  },
+                  {
+                        "label": "Sammler",
+                        "text": "Modellidentität und Kataloggeschichte zählen stark.",
+                        "tags": {
+                              "collector": 7,
+                              "rare": 5,
+                              "legacy": 4,
+                              "classic": 3
+                        }
+                  },
+                  {
+                        "label": "Sportschütze",
+                        "text": "Das Ergebnis soll Richtung Wertung und sauberes Visierverhalten gehen.",
+                        "tags": {
+                              "sport": 7,
+                              "competition": 6,
+                              "precision": 5,
+                              "longslide": 4
+                        }
+                  },
+                  {
+                        "label": "Trainingsorientierter Besitzer",
+                        "text": "Ein ruhiges Modell zum Aufbau guter Gewohnheiten wird bevorzugt.",
+                        "tags": {
+                              "training": 7,
+                              "academy": 5,
+                              "soft": 4
+                        },
+                        "models": {
+                              "G44": 5
+                        }
+                  },
+                  {
+                        "label": "Großkaliber-Enthusiast",
+                        "text": "Der Berater darf ein stärkeres Kaliber wählen, wenn es passt.",
+                        "tags": {
+                              "power": 7,
+                              "10mm": 4,
+                              "45auto": 3,
+                              "large": 2
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Was soll das Ergebnis am stärksten priorisieren?",
+            "kicker": "Priorität",
+            "options": [
+                  {
+                        "label": "Alltagspraktikabilität",
+                        "text": "Ein Modell, das leicht zu empfehlen und leicht zu besitzen ist.",
+                        "tags": {
+                              "balanced": 6,
+                              "compact": 3,
+                              "9mm": 3
+                        }
+                  },
+                  {
+                        "label": "Kleine Größe",
+                        "text": "Eine Pistole, die wenig Platz beansprucht.",
+                        "tags": {
+                              "small": 6,
+                              "subcompact": 5,
+                              "slim": 3
+                        }
+                  },
+                  {
+                        "label": "Schmale Breite",
+                        "text": "Ein schmalerer Rahmen ist wichtiger als Kapazität oder Gewicht.",
+                        "tags": {
+                              "slim": 7,
+                              "plainclothes": 4,
+                              "civic": 2
+                        }
+                  },
+                  {
+                        "label": "Schießbarkeit",
+                        "text": "Stabilität und Kontrolle sind wichtiger als winzige Maße.",
+                        "tags": {
+                              "standard": 4,
+                              "longslide": 3,
+                              "precision": 3,
+                              "balanced": 2
+                        }
+                  },
+                  {
+                        "label": "Leistung",
+                        "text": "Das Kaliber soll Präsenz haben.",
+                        "tags": {
+                              "power": 7,
+                              "10mm": 3,
+                              "45auto": 3,
+                              "large": 2
+                        }
+                  },
+                  {
+                        "label": "Eigenständigkeit",
+                        "text": "Das Modell soll eine stärkere Katalogidentität haben.",
+                        "tags": {
+                              "collector": 5,
+                              "rare": 5,
+                              "legacy": 4,
+                              "classic": 2
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Welches Profil möchtest du eher vermeiden?",
+            "kicker": "Präferenzfilter",
+            "options": [
+                  {
+                        "label": "Nichts zu Großes",
+                        "text": "Kleiner, schlanker und leichter zu tragen.",
+                        "tags": {
+                              "small": 5,
+                              "slim": 5,
+                              "subcompact": 4,
+                              "plainclothes": 2
+                        }
+                  },
+                  {
+                        "label": "Nichts zu Kleines",
+                        "text": "Genug Rahmen für angenehmes Schießen behalten.",
+                        "tags": {
+                              "standard": 3,
+                              "compact": 5,
+                              "balanced": 4
+                        }
+                  },
+                  {
+                        "label": "Ungewöhnliche Kaliber vermeiden",
+                        "text": "Das Ergebnis soll verbreitet und unkompliziert bleiben.",
+                        "tags": {
+                              "9mm": 6,
+                              "balanced": 4,
+                              "compact": 2,
+                              "standard": 1
+                        }
+                  },
+                  {
+                        "label": "Gewöhnliche Entscheidungen vermeiden",
+                        "text": "Gib dem Ergebnis mehr Charakter.",
+                        "tags": {
+                              "rare": 5,
+                              "collector": 4,
+                              "legacy": 3,
+                              "power": 2
+                        }
+                  },
+                  {
+                        "label": "Starken Rückstoß vermeiden",
+                        "text": "Ruhigere und leichter zu übende Optionen bevorzugen.",
+                        "tags": {
+                              "soft": 6,
+                              "380auto": 3,
+                              "22lr": 3,
+                              "training": 2
+                        }
+                  },
+                  {
+                        "label": "Rein praktische Entscheidungen vermeiden",
+                        "text": "Sport, Präzision oder Sammlerwert sollen stärker zählen.",
+                        "tags": {
+                              "competition": 3,
+                              "precision": 4,
+                              "collector": 3,
+                              "rare": 2
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Welche Besitzgeschichte soll das Modell erzählen?",
+            "kicker": "Identität",
+            "options": [
+                  {
+                        "label": "Zuverlässiger privater Allrounder",
+                        "text": "Eine Pistole, die gewählt wird, weil sie einfach Sinn ergibt.",
+                        "tags": {
+                              "balanced": 6,
+                              "9mm": 3,
+                              "compact": 3
+                        }
+                  },
+                  {
+                        "label": "Unauffällig und diskret",
+                        "text": "Ein Modell, das zurückhaltend bleibt.",
+                        "tags": {
+                              "plainclothes": 5,
+                              "slim": 5,
+                              "small": 3
+                        }
+                  },
+                  {
+                        "label": "Ernsthafter Schießstandbesitzer",
+                        "text": "Eine Pistole für Übung, Präzision und saubere Ergebnisse.",
+                        "tags": {
+                              "sport": 5,
+                              "precision": 5,
+                              "competition": 4,
+                              "longslide": 3
+                        }
+                  },
+                  {
+                        "label": "Traditioneller Besitzer",
+                        "text": "Ein klassisches Modell mit vertrauten Proportionen und historischer Ausstrahlung.",
+                        "tags": {
+                              "classic": 6,
+                              "standard": 3,
+                              "45auto": 1,
+                              "9mm": 2
+                        }
+                  },
+                  {
+                        "label": "Sammler mit Sinn für Besonderheiten",
+                        "text": "Eine weniger verbreitete Linie ist willkommen.",
+                        "tags": {
+                              "collector": 7,
+                              "rare": 6,
+                              "legacy": 4
+                        }
+                  },
+                  {
+                        "label": "Großkaliber-Besitzer",
+                        "text": "Das Modell soll kräftig und leistungsstark wirken.",
+                        "tags": {
+                              "power": 7,
+                              "large": 3,
+                              "10mm": 3,
+                              "45auto": 3
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Welche letzte Präferenz soll knappe Ergebnisse entscheiden?",
+            "kicker": "Entscheidungshilfe",
+            "options": [
+                  {
+                        "label": "Klassische Full-Size-Balance",
+                        "text": "Bevorzuge die vertraute Katalogsilhouette.",
+                        "tags": {
+                              "standard": 4,
+                              "classic": 3,
+                              "balanced": 2
+                        },
+                        "models": {
+                              "G17": 3
+                        }
+                  },
+                  {
+                        "label": "Kompakte Balance",
+                        "text": "Bevorzuge die praktische Mittelgröße.",
+                        "tags": {
+                              "compact": 5,
+                              "balanced": 3,
+                              "9mm": 2
+                        },
+                        "models": {
+                              "G19": 3
+                        }
+                  },
+                  {
+                        "label": "Schlankes Trageprofil",
+                        "text": "Bevorzuge Slimline-Einträge bei knappen Ergebnissen.",
+                        "tags": {
+                              "slim": 5,
+                              "plainclothes": 3,
+                              "small": 2
+                        }
+                  },
+                  {
+                        "label": "Wettkampfpräsenz",
+                        "text": "Bevorzuge längere Schlitten und wertungsorientierte Modelle.",
+                        "tags": {
+                              "competition": 5,
+                              "longslide": 5,
+                              "precision": 3
+                        }
+                  },
+                  {
+                        "label": "Trainingssicherheit",
+                        "text": "Bevorzuge ruhige, übungsorientierte Modelle.",
+                        "tags": {
+                              "training": 5,
+                              "academy": 4,
+                              "soft": 3
+                        },
+                        "models": {
+                              "G44": 4
+                        }
+                  },
+                  {
+                        "label": "Sammlerprofil",
+                        "text": "Bevorzuge seltene und traditionsreiche Einträge.",
+                        "tags": {
+                              "collector": 5,
+                              "rare": 5,
+                              "legacy": 4
+                        }
+                  }
+            ]
+      },
+      {
+            "title": "Wähle deine abschließende Kataloganweisung.",
+            "kicker": "Endauswahl",
+            "options": [
+                  {
+                        "label": "Empfiehl die sicherste Allround-Übereinstimmung",
+                        "text": "Balance soll Neuheit schlagen.",
+                        "tags": {
+                              "balanced": 6,
+                              "9mm": 4,
+                              "compact": 3,
+                              "standard": 2
+                        }
+                  },
+                  {
+                        "label": "Empfiehl das am leichtesten zu tragende Modell",
+                        "text": "Schlankheit und kleine Größe sollen gewinnen.",
+                        "tags": {
+                              "slim": 6,
+                              "small": 5,
+                              "subcompact": 3,
+                              "plainclothes": 3
+                        }
+                  },
+                  {
+                        "label": "Empfiehl die beste Schießstand-Persönlichkeit",
+                        "text": "Präzision und Sportnutzung sollen gewinnen.",
+                        "tags": {
+                              "precision": 6,
+                              "sport": 5,
+                              "competition": 5,
+                              "longslide": 4
+                        }
+                  },
+                  {
+                        "label": "Empfiehl den stärksten Charakter",
+                        "text": "Leistung und Präsenz sollen gewinnen.",
+                        "tags": {
+                              "power": 6,
+                              "10mm": 3,
+                              "45auto": 3,
+                              "large": 3
+                        }
+                  },
+                  {
+                        "label": "Empfiehl die sammelwürdigste Passung",
+                        "text": "Seltenheit und Kataloggeschichte sollen gewinnen.",
+                        "tags": {
+                              "collector": 7,
+                              "rare": 6,
+                              "legacy": 4,
+                              "classic": 2
+                        }
+                  },
+                  {
+                        "label": "Empfiehl die ruhigste Trainingspassung",
+                        "text": "Einweisung und sanfte Handhabung sollen gewinnen.",
+                        "tags": {
+                              "training": 7,
+                              "academy": 5,
+                              "soft": 4,
+                              "22lr": 3
+                        },
+                        "models": {
+                              "G44": 5
+                        }
+                  }
+            ]
+      }
+];
+
+    const state = {
+      step: 0,
+      answers: []
+    };
+
+    const questionPanel = document.getElementById("questionPanel");
+    const resultPanel = document.getElementById("resultPanel");
+    const progressLabel = document.getElementById("progressLabel");
+    const progressBar = document.getElementById("progressBar");
+    const backBtn = document.getElementById("backBtn");
+    const historyText = document.getElementById("historyText");
+    const entryCount = document.getElementById("entryCount");
+    const questionCount = document.getElementById("questionCount");
+
+    entryCount.textContent = MODELS.length;
+    questionCount.textContent = QUESTIONS.length;
+
+    function tagList(model) {
+      return new Set(model.tags || []);
+    }
+
+    function scoreModel(model) {
+      let score = 0;
+      const tags = tagList(model);
+
+      state.answers.forEach(answer => {
+        Object.entries(answer.tags || {}).forEach(([tag, value]) => {
+          if (tags.has(tag)) score += value;
+        });
+        if (answer.models && answer.models[model.id]) score += answer.models[model.id];
+      });
+
+      if (tags.has("balanced")) score += 0.15;
+      if (tags.has("9mm")) score += 0.1;
+      return score;
+    }
+
+    function rankedModels() {
+      return MODELS
+        .map(model => ({ ...model, score: scoreModel(model) }))
+        .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+    }
+
+    function renderQuestion() {
+      resultPanel.classList.remove("active");
+      resultPanel.innerHTML = "";
+
+      const q = QUESTIONS[state.step];
+      const progress = ((state.step) / QUESTIONS.length) * 100;
+      progressLabel.textContent = `Frage ${state.step + 1} / ${QUESTIONS.length}`;
+      progressBar.style.width = progress + "%";
+      backBtn.style.visibility = state.step === 0 ? "hidden" : "visible";
+      historyText.textContent = state.answers.length
+        ? `${state.answers.length} Profilantwort${state.answers.length === 1 ? "" : "en"} gespeichert.`
+        : "Kundenprofil geöffnet.";
+
+      questionPanel.style.display = "block";
+      questionPanel.innerHTML = `
+        <div class="kicker">${q.kicker}</div>
+        <h4>${q.title}</h4>
+        <div class="choices">
+          ${q.options.map((option, index) => `
+            <button class="choice" type="button" data-index="${index}">
+              <strong>${option.label}</strong>
+              <span>${option.text}</span>
+            </button>
+          `).join("")}
+        </div>
+      `;
+
+      questionPanel.querySelectorAll(".choice").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const selected = q.options[Number(btn.dataset.index)];
+          state.answers[state.step] = selected;
+          state.step++;
+          if (state.step >= QUESTIONS.length) {
+            renderResult();
+          } else {
+            renderQuestion();
+          }
+        });
+      });
+    }
+
+    function renderResult() {
+      const ranked = rankedModels();
+      const best = ranked[0];
+      const alternatives = ranked.slice(1, 6);
+
+      questionPanel.style.display = "none";
+      progressLabel.textContent = "Berater abgeschlossen";
+      progressBar.style.width = "100%";
+      backBtn.style.visibility = "visible";
+      historyText.textContent = "Modellkarte vom Produktberater erstellt.";
+
+      resultPanel.classList.add("active");
+      resultPanel.innerHTML = `
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="kicker">Empfohlenes Modell</div>
+            <h3>${best.name}</h3>
+            <p>${best.desc}</p>
+            <div class="model-meta">
+              <span class="pill">${best.caliber}</span>
+              <span class="pill">${best.size}</span>
+              <span class="pill">Profilwert ${Math.round(best.score)}</span>
+            </div>
+            <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn" type="button" id="restartBtn">Berater neu starten</button>
+              <a class="btn dark" href="#catalogue">Katalog ansehen</a>
+            </div>
+          </div>
+          <aside class="alt-box">
+            <h4>Nahe Alternativen</h4>
+            <div class="alt-list">
+              ${alternatives.map(model => `
+                <div class="alt-item">
+                  <b><span>${model.name}</span><span>${Math.round(model.score)}</span></b>
+                  <span>${model.caliber} · ${model.size}</span>
+                </div>
+              `).join("")}
+            </div>
+          </aside>
+        </div>
+      `;
+
+      document.getElementById("restartBtn").addEventListener("click", () => {
+        state.step = 0;
+        state.answers = [];
+        renderQuestion();
+        document.getElementById("quiz").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    backBtn.addEventListener("click", () => {
+      if (state.step >= QUESTIONS.length) {
+        state.step = QUESTIONS.length - 1;
+        state.answers = state.answers.slice(0, state.step);
+        renderQuestion();
+        return;
+      }
+      if (state.step > 0) {
+        state.step--;
+        state.answers = state.answers.slice(0, state.step);
+        renderQuestion();
+      }
+    });
+
+    const modelGrid = document.getElementById("modelGrid");
+    const searchInput = document.getElementById("searchInput");
+    const sizeFilter = document.getElementById("sizeFilter");
+    const caliberFilter = document.getElementById("caliberFilter");
+    const noResults = document.getElementById("noResults");
+
+    function uniqueValues(key) {
+      return [...new Set(MODELS.map(model => model[key]))].sort((a, b) => a.localeCompare(b));
+    }
+
+    function fillFilters() {
+      uniqueValues("size").forEach(value => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = value;
+        sizeFilter.appendChild(option);
+      });
+      uniqueValues("caliber").forEach(value => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = value;
+        caliberFilter.appendChild(option);
+      });
+    }
+
+
+    const TAG_LABELS = {
+      "duty": "bewährt",
+      "patrol": "allround",
+      "plainclothes": "diskret",
+      "civic": "privat",
+      "authority": "premium",
+      "backup": "minimal",
+      "admin": "klassisch",
+      "academy": "Training",
+      "controlled": "Training",
+      "special": "Spezial",
+      "standard": "Full-Size",
+      "compact": "kompakt",
+      "subcompact": "subkompakt",
+      "slim": "Slimline",
+      "longslide": "Long Slide",
+      "competition": "Sport",
+      "precision": "Präzision",
+      "balanced": "ausgewogen",
+      "classic": "klassisch",
+      "modern": "modern",
+      "power": "Leistung",
+      "field": "Outdoor",
+      "large": "großer Rahmen",
+      "soft": "sanft",
+      "small": "klein",
+      "rare": "selten",
+      "collector": "Sammler",
+      "legacy": "Tradition",
+      "shortframe": "Short Frame",
+      "sport": "Schießstand",
+      "training": "Training",
+      "9mm": "9 mm",
+      "40sw": ".40",
+      "10mm": "10 mm",
+      "45auto": ".45 Auto",
+      "380auto": ".380 Auto",
+      "22lr": ".22 l.r.",
+      "357sig": ".357 SIG",
+      "45gap": ".45 GAP"
+};
+
+    function displayTag(tag) {
+      return TAG_LABELS[tag] || String(tag).replace(/-/g, " ");
+    }
+
+    function renderCatalogue() {
+      const query = searchInput.value.trim().toLowerCase();
+      const size = sizeFilter.value;
+      const caliber = caliberFilter.value;
+
+      const filtered = MODELS.filter(model => {
+        const haystack = [model.name, model.caliber, model.size, model.desc, ...(model.tags || [])].join(" ").toLowerCase();
+        return (!query || haystack.includes(query)) &&
+               (!size || model.size === size) &&
+               (!caliber || model.caliber === caliber);
+      });
+
+      modelGrid.innerHTML = filtered.map(model => `
+        <article class="model-card">
+          <div class="model-body">
+            <div class="model-title">
+              <h3>${model.name}</h3>
+              <span class="tiny-mark">GLOCK</span>
+            </div>
+            <p>${model.desc}</p>
+            <div class="model-meta">
+              <span class="pill">${model.caliber}</span>
+              <span class="pill">${model.size}</span>
+            </div>
+          </div>
+          <div class="stamp">Katalogprofil · ${model.tags.slice(0,3).map(displayTag).join(" · ")}</div>
+        </article>
+      `).join("");
+
+      noResults.style.display = filtered.length ? "none" : "block";
+    }
+
+    [searchInput, sizeFilter, caliberFilter].forEach(el => el.addEventListener("input", renderCatalogue));
+    fillFilters();
+    renderCatalogue();
+    renderQuestion();
+  </script>
+</body>
+</html>
